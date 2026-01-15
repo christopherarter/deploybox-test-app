@@ -1,0 +1,18 @@
+provider: hetzner
+
+server:
+  type: cx21          # Hetzner server type (2 vCPU, 4GB RAM)
+  location: nbg1      # Datacenter: nbg1, fsn1, hel1, ash, hil
+
+domain: deployboxtest.dynamik.dev     # Your domain (configure DNS after provisioning)
+
+stack:
+  php: "8.5"
+  database: postgres  # postgres or mysql
+  cache: valkey       # Redis-compatible cache
+
+deploy:
+  branch: main
+  migrations: true
+  queue_restart: true
+  scheduler: true

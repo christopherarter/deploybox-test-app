@@ -1,0 +1,16 @@
+name: Provision Server
+
+on:
+  workflow_dispatch:  # Manual trigger only
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Provision server
+        uses: christopherarter/deploybox@main
+        with:
+          command: provision
+          hetzner_token: ${{ secrets.HETZNER_TOKEN }}
